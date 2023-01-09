@@ -37,10 +37,16 @@ export class QuestionComponent implements OnInit {
 
   //Making methods for the lower buttons to move left and right
   nextQuestion(){
+    if(this.currentQuestion==8){
+      this.currentQuestion=8;
+    }else
     this.currentQuestion++;
 
   }
   prevQuestion(){
+    if(this.currentQuestion==0){
+      this.currentQuestion=0;
+    }else
     this.currentQuestion--;
   }
 
