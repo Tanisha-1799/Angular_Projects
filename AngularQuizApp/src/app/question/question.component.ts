@@ -8,6 +8,12 @@ import { QuestionService } from '../service/question.service';
 })
 export class QuestionComponent implements OnInit {
   public name : string="";
+  public questionList : any =[];
+  public currentQuestion:number=0;
+  public points:number=0;
+  counter=60;
+
+
   //constructor is used for injecting the services 
   //so we first assign a variable and then import the service
   constructor(private questionService : QuestionService) { }
@@ -24,9 +30,18 @@ export class QuestionComponent implements OnInit {
   getAllQuestions(){
     this.questionService.getQuestionJson()
     .subscribe((res: any)=>{
-      console.log(res);
+     this.questionList=res.questions;
     })
 
+  }
+
+  //Making methods for the lower buttons to move left and right
+  nextQuestion(){
+    this.currentQuestion++;
+
+  }
+  prevQuestion(){
+    this.currentQuestion--;
   }
 
 }

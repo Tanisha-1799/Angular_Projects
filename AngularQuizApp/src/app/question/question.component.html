@@ -15,14 +15,14 @@
         </div>
         <div class="d-flex justify-content-around py-2">
             <div class="score">
-                <h5>20 points</h5>
+                <h5>{{points}} points</h5>
 
             </div>
             <div class="question-remain">
-                <span style="font-style: italic;">Question 1 of 9</span>
+                <span style="font-style: italic;">Question {{currentQuestion+1}} of 9</span>
             </div>
             <div class="timer">
-               <h5> 60 sec <i style="font-size:20px;margin-left: 3px;" class="fa">	&#9202;</i>
+               <h5> {{counter}} sec <i style="font-size:20px;margin-left: 3px;" class="fa">	&#9202;</i>
                </h5>
             </div>
         </div>
@@ -31,22 +31,22 @@
           </div>
           <div class="question">
             <div class="card">
-                <h3>What is your name ?</h3>
+                <h3>{{questionList[currentQuestion]?.questionText}}</h3>
             </div>
           </div>
           <div class="options">
               <ol>
                   <li>
-                      <div class="card">Samanthon</div>
+                      <div class="card">{{questionList[0]?.options[0]?.text}}</div>
                   </li>
                   <li>
-                    <div class="card">Rochele</div>
+                    <div class="card">{{questionList[0]?.options[1]?.text}}</div>
                 </li>
                 <li>
-                    <div class="card">David</div>
+                    <div class="card">{{questionList[0]?.options[2]?.text}}</div>
                 </li>
                 <li>
-                    <div class="card">Billy</div>
+                    <div class="card">{{questionList[0]?.options[3]?.text}}</div>
                 </li>
               </ol>
 
