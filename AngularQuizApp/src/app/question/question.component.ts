@@ -30,6 +30,7 @@ export class QuestionComponent implements OnInit {
 
     this.name=localStorage.getItem("name")!;
     this.getAllQuestions();
+    this.startCounter();
   }
   //calling the service to get the questions
 
@@ -100,6 +101,7 @@ export class QuestionComponent implements OnInit {
     this.getAllQuestions();
     this.points=0;
     this.counter=60;
+    this.currentQuestion=0;
   }
 
 }
