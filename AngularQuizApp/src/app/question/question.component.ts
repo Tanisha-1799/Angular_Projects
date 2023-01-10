@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../service/question.service';
+import {interval} from 'rxjs';
+
+
 
 @Component({
   selector: 'app-question',
@@ -12,6 +15,9 @@ export class QuestionComponent implements OnInit {
   public currentQuestion:number=0;
   public points:number=0;
   counter=60;
+  correctAnswer:number=0;
+  incorrectAnswer:number=0;
+  interval$:any;
 
 
   //constructor is used for injecting the services 
@@ -37,8 +43,10 @@ export class QuestionComponent implements OnInit {
 
   //Making methods for the lower buttons to move left and right
   nextQuestion(){
-    if(this.currentQuestion==8){
-      this.currentQuestion=8;
+    //insted of applying checks here we can just disable the buttons in the html file
+    //on a particular condition
+    if(this.currentQuestion==(this.questionList.length-1)){
+      this.currentQuestion=this.questionList.length-1;
     }else
     this.currentQuestion++;
 
@@ -48,6 +56,39 @@ export class QuestionComponent implements OnInit {
       this.currentQuestion=0;
     }else
     this.currentQuestion--;
+  }
+
+  answer(currentQno:number,option:any){
+    if(option.correct){
+      this.points+=10;
+      this.correctAnswer++;
+      this.currentQuestion++;
+    }else{
+      this.points-=10;
+      this.incorrectAnswer++;
+      this.currentQuestion++;
+    }
+  }
+  startcounter(){
+    this.interval$=interval(1000)
+    .subscribe((val: any)=>{
+      this.counter--;
+      if(this.counter===0){
+        this.currentQuestion++;
+        this.counter=60;
+        this.points-=10;
+      }
+    });
+    setTimeout(()=>{
+      this.interval$.unsubscribe();
+    },600000);
+   
+  }
+  stopcounter(){
+
+  }
+  resetcounter(){
+
   }
 
 }
