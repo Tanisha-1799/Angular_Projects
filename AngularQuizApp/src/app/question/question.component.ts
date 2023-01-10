@@ -69,7 +69,7 @@ export class QuestionComponent implements OnInit {
       this.currentQuestion++;
     }
   }
-  startcounter(){
+  startCounter(){
     this.interval$=interval(1000)
     .subscribe((val: any)=>{
       this.counter--;
@@ -84,11 +84,22 @@ export class QuestionComponent implements OnInit {
     },600000);
    
   }
-  stopcounter(){
+  stopCounter(){
+    this.interval$.unsubscribe();
+    this.counter=0;
 
   }
-  resetcounter(){
+  resetCounter(){
+    this.stopCounter();
+    this.counter=60;
+    this.startCounter();
 
+  }
+  resetQuiz(){
+    this.resetCounter();
+    this.getAllQuestions();
+    this.points=0;
+    this.counter=60;
   }
 
 }
