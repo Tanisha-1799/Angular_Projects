@@ -64,15 +64,22 @@ export class QuestionComponent implements OnInit {
     if(option.correct){
       this.points+=10;
       this.correctAnswer++;
-      this.currentQuestion++;
+      setTimeout(()=>{
+        this.currentQuestion++;
       this.resetCounter();
       this.getProgresPercent();
-    }else{
-      this.currentQuestion++;
-      this.incorrectAnswer++;
-      this.resetCounter();
+      },1000);
       
-      this.getProgresPercent();
+    }else{
+      setTimeout(()=>{
+        this.currentQuestion++;
+        this.incorrectAnswer++;
+        this.resetCounter();
+        
+        this.getProgresPercent();
+        
+      },1000);
+     
       this.points-=10;
     }
   }

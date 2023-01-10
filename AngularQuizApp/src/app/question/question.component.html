@@ -37,7 +37,7 @@
           <div class="options">
               <ol *ngFor="let option of questionList[currentQuestion]?.options">
                   <li (click)="answer(currentQuestion+1,option)">
-                      <div class="card">
+                      <div appChangeBg [isCorrect]="option.correct" class="card">
                           {{option.text}}
                         </div>
                   </li>
