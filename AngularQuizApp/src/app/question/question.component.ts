@@ -20,6 +20,10 @@ export class QuestionComponent implements OnInit {
   interval$:any;
   progress:string="0";
 
+  //making a property so that we can display the result page when 
+  //all the questions are answered .
+  inQuizCompleted : boolean =false; 
+
 
   //constructor is used for injecting the services 
   //so we first assign a variable and then import the service
