@@ -22,7 +22,7 @@ export class QuestionComponent implements OnInit {
 
   //making a property so that we can display the result page when 
   //all the questions are answered .
-  inQuizCompleted : boolean =false; 
+  isQuizCompleted : boolean =false; 
 
 
   //constructor is used for injecting the services 
