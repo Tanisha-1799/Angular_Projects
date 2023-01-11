@@ -58,10 +58,10 @@
             <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="">
             <div class="result text-center col-md-6 col-sm-12">
                 <h3>Congratulations !! <br>You have completed the quiz. <br>Below is you Result :</h3>
-                <p>Total Questions Attempted : </p>
-                <p>Total Correct Answered Questions : </p>
-                <p>Total Wrong Anwered Questions : </p>
-                <p>Your Score : </p>
+                <p>Total Questions Attempted : {{questionList.length}}</p>
+                <p>Total Correct Answered Questions : {{correctAnswer}}</p>
+                <p>Total Wrong Anwered Questions : {{incorrectAnswer}}</p>
+                <p>Your Score : {{points}} Points</p>
             </div>
         </div>
        </ng-container>
