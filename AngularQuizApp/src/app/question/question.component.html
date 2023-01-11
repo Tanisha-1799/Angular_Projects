@@ -13,6 +13,7 @@
                 <span style="font-style: italic;">Welcome {{name}}</span>
             </div>
         </div>
+       <ng-container >
         <div class="d-flex justify-content-around py-2">
             <div class="score">
                 <h5>{{points}} points</h5>
@@ -51,5 +52,11 @@
               <button [disabled]="currentQuestion===questionList.length-1"class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-2x" aria-hidden="true"></i></button>
               
           </div>
+       </ng-container>
+       <ng-container>
+        <div class="row d-flex justify-content-between">
+            <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="">
+        </div>
+       </ng-container>
     </div>
 </div>
